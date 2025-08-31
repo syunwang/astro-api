@@ -1,0 +1,91 @@
+/* 🎨 ui.css — 頁面風格設定 */
+:root {
+  --bg: #0f1115;
+  --card: #171a21;
+  --text: #e6e8ee;
+  --muted: #9aa3b2;
+  --accent: #8b5cf6;
+  --border: #242836;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 15px/1.6 Inter, ui-sans-serif, system-ui, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", Arial;
+}
+
+h1 { font-size: 1.5rem; margin: 20px 0 10px; }
+h3 { margin: 0 0 10px; }
+
+.wrap { max-width: 1200px; margin: 0 auto; padding: 18px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+}
+
+label { display: block; font-weight: 600; margin-bottom: 4px; }
+
+input, select, button {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #0f141e;
+  color: var(--text);
+  font-size: 14px;
+}
+
+.row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+.row > * { flex: 1; }
+
+.btn {
+  background: linear-gradient(135deg, #8b5cf6, #22d3ee);
+  border: 0;
+  color: #0b1020;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.btn.secondary {
+  background: #0f141e;
+  color: var(--text);
+  border: 1px dashed var(--border);
+}
+
+.small { font-size: .85rem; color: var(--muted); }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+th, td {
+  border-bottom: 1px solid var(--border);
+  padding: 6px 8px;
+  text-align: left;
+}
+th { color: #cbd5e1; font-weight: 700; }
+
+.pill {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #1b2233;
+  border: 1px solid var(--border);
+  color: #cbd5e1;
+  font-size: .85rem;
+}
+
+canvas {
+  max-width: 100%;
+  background: #0b1220;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}

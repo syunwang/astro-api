@@ -1,0 +1,9 @@
+{
+  "liveServer.settings.root": "/",
+  "liveServer.settings.host": "127.0.0.1",
+  "liveServer.settings.port": 5500,
+  "liveServer.settings.mimeTypes": {
+    "application/wasm": ["wasm"],
+    "application/octet-stream": ["data", "se1"]
+  }
+}
