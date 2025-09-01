@@ -1,9 +1,7 @@
 [build]
-  # 你的網站首頁在根目錄(index.html)，所以 publish 設 "."
-  publish = "."
-  # 沒有打包指令就留空字串
-  command = ""
+publish = "."
+command = ""
 
 [functions]
-  directory = "netlify/functions"
-  node_bundler = "esbuild"   # 讓 Netlify 幫你打包 proxy.js
+directory = "netlify/functions"
+node_bundler = "esbuild"
