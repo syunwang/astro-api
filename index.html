@@ -1,77 +1,48 @@
-<!doctype html>
-<html lang="zh-Hant">
+<!DOCTYPE html>
+<html lang="zh">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Swiss Ephemeris（改用 OpenAstro API）測試</title>
-  <link rel="stylesheet" href="./src/ui.css" />
-  <style>
-    body{background:#0b0f14;color:#e6edf3;font-family:system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;}
-    .wrap{max-width:980px;margin:32px auto;padding:0 16px;}
-    h1{font-size:28px;margin:0 0 18px}
-    .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
-    .field{display:flex;flex-direction:column;gap:6px}
-    .field label{opacity:.9}
-    .field input{background:#0d1117;border:1px solid #30363d;border-radius:10px;color:#e6edf3;padding:14px 12px}
-    .note{opacity:.75;font-size:14px;margin:8px 0 6px}
-    button{width:100%;border:0;border-radius:14px;padding:16px;
-      background:linear-gradient(90deg,#7aa2ff,#43d3e8);color:#0b0f14;font-weight:700;font-size:16px;cursor:pointer}
-    button[disabled]{opacity:.6;cursor:not-allowed}
-    table{width:100%;border-collapse:collapse;margin-top:18px;background:#0d1117;border:1px solid #30363d;border-radius:12px;overflow:hidden}
-    th,td{padding:12px 10px;border-bottom:1px solid #21262d;text-align:left}
-    th{background:#0b0f14;font-weight:600}
-    .muted{opacity:.75}
-    .err{margin-top:12px;color:#ff8a8a}
-    .ok{margin-top:12px;color:#66ffb2}
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OpenAstro API 行星座標測試</title>
+  <link rel="stylesheet" href="src/ui.css" />
 </head>
 <body>
-  <div class="wrap">
-    <h1>OpenAstro API 行星座標測試</h1>
+  <h1>OpenAstro API 行星座標測試</h1>
 
-    <div class="grid">
-      <div class="field">
-        <label>Latitude 緯度(°)</label>
-        <input id="lat" value="22.9912" />
-      </div>
-      <div class="field">
-        <label>Longitude 經度(°)</label>
-        <input id="lon" value="120.1850" />
-      </div>
-      <div class="field">
-        <label>出生日期</label>
-        <input id="date" value="1958/01/07" />
-      </div>
-      <div class="field">
-        <label>出生時間 (24h)</label>
-        <input id="time" value="20:50" />
-      </div>
-      <div class="field">
-        <label>UTC 偏移（例：+08:00 或 8）</label>
-        <input id="tz" value="+08:00" />
-      </div>
-    </div>
+  <form id="astroForm">
+    <label>Latitude 緯度(°)</label>
+    <input id="lat" type="text" value="22.9912" />
 
-    <button id="go">計算（OpenAstro API）</button>
-    <div class="note muted">本頁面改用 <b>OpenAstro API</b>（免金鑰）。如果遇到 CORS，可改走文末的「CORS備援端點」。</div>
+    <label>Longitude 經度(°)</label>
+    <input id="lng" type="text" value="120.1850" />
 
-    <div id="status" class="muted"></div>
+    <label>出生日期</label>
+    <input id="date" type="text" value="1958/01/07" />
 
-    <table id="tbl" style="display:none">
-      <thead>
-        <tr>
-          <th>Body</th>
-          <th>Lon (°)</th>
-          <th>Lat (°)</th>
-          <th class="muted">備註</th>
-        </tr>
-      </thead>
-      <tbody id="tbody"></tbody>
-    </table>
+    <label>出生時間(24h)</label>
+    <input id="time" type="text" value="20:50" />
 
-    <div id="error" class="err"></div>
-  </div>
+    <label>UTC 偏移 (例: +08:00 或 8)</label>
+    <input id="tz" type="text" value="+08:00" />
 
-  <script src="./src/main.js"></script>
+    <button type="button" id="go">計算 (OpenAstro API)</button>
+  </form>
+
+  <div id="status"></div>
+  <div id="error"></div>
+
+  <table id="tbl">
+    <thead>
+      <tr>
+        <th>行星</th>
+        <th>度數</th>
+        <th>星座</th>
+        <th>宮位</th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+
+  <script src="src/main.js"></script>
 </body>
 </html>
