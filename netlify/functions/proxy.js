@@ -1,11 +1,10 @@
+// netlify/functions/proxy.js
 export async function handler(event, context) {
   try {
-    const body = JSON.parse(event.body);
-
     const response = await fetch("https://api.openastro.io/chart", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
+      body: event.body,
     });
 
     const data = await response.json();
@@ -14,10 +13,10 @@ export async function handler(event, context) {
       statusCode: 200,
       body: JSON.stringify(data),
     };
-  } catch (err) {
+  } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: err.message }),
+      body: JSON.stringify({ error: error.message }),
     };
   }
 }
