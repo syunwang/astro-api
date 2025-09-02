@@ -1,4 +1,5 @@
 // netlify/functions/proxy.js
+const OA_ENDPOINT = 'https://httpbin.org/post';
 export async function handler(event, context) {
   try {
     console.log("== proxy invoked ==");
